@@ -17,10 +17,10 @@ app.use(function (req, res, next) {
 
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
-  console.log('test-test');
+ 
   setInterval(async () => {
     await fetchDataUsingAxios(); // Use await here to handle the Promise properly
-  }, 6000);
+  }, 1);
 });
 
 const fetchDataUsingAxios = async () => {
@@ -57,7 +57,7 @@ const fetchDataUsingAxios = async () => {
 
     // Writing CSV content to a file
     console.log('Updating on :', formattedDate);
-    // console.log(csvContent + csvRows.join(''));
+    console.log('Data', csvContent + csvRows.join(''));
     // fs.writeFileSync('option_chain_data.csv', csvContent + csvRows.join(''));
   } catch (error) {
     console.error('Error fetching data using axios:', error);
