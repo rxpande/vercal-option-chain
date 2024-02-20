@@ -9,6 +9,12 @@ const port = 3010;
 app.use(express.static('static'));
 app.use(cors());
 
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  next();
+});
+
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
   console.log('test-test');
