@@ -11,6 +11,7 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   res.sendFile(resolve(__dirname, 'pages/index.html'));
+  console.log('test-test');
   setInterval(async () => {
     await fetchDataUsingAxios(); // Use await here to handle the Promise properly
   }, 6000);
